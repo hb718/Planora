@@ -1019,16 +1019,21 @@ function isThisWeek(date) {
                                 );
 
 
-                            if (
-                                filter === "all"
-                            ) {
+                            if (filter === "all") {
 
-                                task.style.display =
-                                    "flex";
+    if (checkbox.checked) {
 
-                            } else if (
-                                filter === "completed"
-                            ) {
+        task.style.display =
+            "none";
+
+    } else {
+
+        task.style.display =
+            "flex";
+
+    }
+
+} else if (filter === "completed") {
 
                                 if (
                                     checkbox.checked
