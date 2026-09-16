@@ -3,7 +3,7 @@ const path = require("path");
 const sqlite3 = require("sqlite3").verbose();
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 const db = new sqlite3.Database(
@@ -826,6 +826,12 @@ app.get("/", (req, res) => {
     res.sendFile(
         path.join(__dirname, "..", "login.html")
     );
+});
+
+const PORT = process.env.PORT || 3000;
+
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "login.html"));
 });
 
 const PORT = process.env.PORT || 3000;
