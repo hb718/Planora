@@ -467,6 +467,86 @@ app.get("/api/subjects/:userId", (req, res) => {
     });
 });
 
+app.post("/api/subjects", (req, res) => {
+
+    const {
+        user_id,
+        name
+    } = req.body;
+
+    const userId = Number(user_id);
+    const subjectName = String(name || "").trim();
+
+    if (!Number.isFinite(userId) || userId <= 0) {
+        return res.status(400).json({
+            error: "Invalid user ID."
+        });
+    }
+
+    if (!subjectName) {
+        return res.status(400).json({
+            error: "Subject name is required."
+        });
+    }
+
+    const sql = `
+        INSERT INTO subjects (
+            user_id,
+            name
+        )
+        VALUES (?, ?)
+    `;
+
+    db.run(
+        sql,
+        [
+            userId,
+            subjectName
+        ],
+        function (err) {
+
+            if (err) {
+
+                if (
+                    err.message.includes(
+                        "UNIQUE constraint failed"
+                    )
+                ) {
+                    return res.status(400).json({
+                        error:
+                            "You already have a subject with this name."
+                    });
+                }
+
+                console.error(
+                    "Save subject database error:",
+                    err.message
+                );
+
+                return res.status(500).json({
+                    error:
+                        "Failed to save subject."
+                });
+            }
+
+            res.status(201).json({
+
+                message:
+                    "Subject saved successfully!",
+
+                subject: {
+                    id: this.lastID,
+                    user_id: userId,
+                    name: subjectName
+                }
+
+            });
+
+        }
+    );
+
+});
+
 app.post("/api/tasks", (req, res) => {
     const {
         user_id,
