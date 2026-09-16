@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planora</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body div class="loginbody">
+<aside class="sidebar">
+
+    <nav>
+
+        <a class="nav-item" href="login.html">
+            <i data-lucide="user"></i>
+            <span>Login</span>
+        </a>
+
+        <a class="nav-item" href="home.html">
+            <i data-lucide="house"></i>
+            <span>Home</span>
+        </a>
+
+        <a class="nav-item" href="todo.html">
+            <i data-lucide="list-todo"></i>
+            <span>Todo</span>
+        </a>
+
+        <a class="nav-item" href="assignments.html">
+            <i data-lucide="library-big"></i>
+            <span>Assignments</span>
+        </a>
+
+        <a class="nav-item" href="timer.html">
+            <i data-lucide="timer"></i>
+            <span>Study</span>
+        </a>
+        <button id="logout-btn" class="nav-item"> 
+            <i data-lucide="log-out"></i> 
+            <span>Log Out</span> 
+        </button>
+
+    </nav>
+
+</aside>
+<div class="login-box">
+    <h2>Login</h2>
+    <p>Don't have an account? <a href="register.html">Create an account</a></p>
+
+    <form id="loginForm">
+        <h5 class="email">Email</h5>
+        <input
+            type="text"
+            id="email"
+            required
+        >
+        
+        <h5 class="password">Password</h5>
+        <input
+            type="password"
+            id="password"
+            required
+        >
+    
+
+        <div class="show-password">
+            <input type="checkbox" id="showPasswordToggle">
+            <label for="showPasswordToggle">Show Password</label>
+        </div>
+        
+        <button type="submit">Login</button>
+
+        <p id="message"></p>
+    </form>
+</div>
+<div class="imagebox">
+    <img src="images/desk.png" alt="image" >
+</div>
+
+<script src="js/script.js"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    lucide.createIcons();
+</script>
+</body>
+
+</html>

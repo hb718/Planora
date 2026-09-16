@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study Timer</title>
+
+    <link rel="stylesheet" href="css/timer.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+    <aside class="sidebar">
+
+        <nav>
+
+            <a class="nav-item" href="login.html">
+                <i data-lucide="user"></i>
+                <span>Login</span>
+            </a>
+
+            <a class="nav-item" href="home.html">
+                <i data-lucide="house"></i>
+                <span>Home</span>
+            </a>
+
+            <a class="nav-item" href="todo.html">
+                <i data-lucide="list-todo"></i>
+                <span>Todo</span>
+            </a>
+
+            <a class="nav-item" href="assignments.html">
+                <i data-lucide="library-big"></i>
+                <span>Assignments</span>
+            </a>
+
+            <a class="nav-item" href="timer.html">
+                <i data-lucide="timer"></i>
+                <span>Study</span>
+            </a>
+            <button id="logout-btn" class="nav-item"> 
+            <i data-lucide="log-out"></i> 
+            <span>Log Out</span> 
+        </button>
+
+        </nav>
+
+    </aside>
+
+    <main class="timer-page">
+
+
+
+        <header class="timer-header">
+
+            <div>
+
+                <p class="page-label">
+                    STUDY TOOLS
+                </p>
+
+                <h1>
+                    Study Timer
+                </h1>
+
+            </div>
+
+        </header>
+
+
+        <section class="timer-grid">
+
+
+            <div class="timer-card subject-timer-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="card-label">
+                            STUDY SESSION
+                        </p>
+
+                        <h2>
+                            Track Study Time
+                        </h2>
+
+                    </div>
+
+                    <i data-lucide="book-open"></i>
+
+                </div>
+
+
+                <p class="card-description">
+                    Choose a subject and start tracking your study session.
+                </p>
+
+
+                <!-- SUBJECT -->
+
+                           
+            <label for="subject">
+                Subject
+            </label>
+
+            <select id="subject" class="timer-select">
+    <option value="" selected disabled>
+        Choose a subject
+    </option>
+</select>
+         
+
+                <div class="large-timer">
+
+                    00:00:00
+
+                </div>
+
+
+                <div class="timer-status">
+                    Ready to study
+                </div>
+
+                <div class="timer-buttons">
+
+                    <button class="start-btn">
+
+                        <i data-lucide="play"></i>
+
+                        Start
+
+                    </button>
+                    <button id="log-session-btn" class="reset-btn">
+                    <i data-lucide="save"></i>
+                    Log
+                    </button>
+                    <button class="reset-btn">
+
+                        <i data-lucide="rotate-ccw"></i>
+
+                        Reset
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="timer-card pomodoro-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <p class="card-label">
+                            FOCUS TIMER
+                        </p>
+
+                        <h2>
+                            Pomodoro
+                        </h2>
+
+                    </div>
+
+                    <i data-lucide="clock-3"></i>
+
+                </div>
+
+
+                <p class="card-description">
+                    Work in focused sessions with regular breaks.
+                </p>
+
+
+                <div class="pomodoro-modes">
+
+                    <button class="pomodoro-mode active">
+                        Focus
+                    </button>
+
+                    <button class="pomodoro-mode">
+                        Short Break
+                    </button>
+
+                    <button class="pomodoro-mode">
+                        Long Break
+                    </button>
+
+                </div>
+
+
+                <!-- POMODORO TIMER -->
+
+                <div class="pomodoro-timer">
+                    25:00
+                </div>
+
+
+                <div class="pomodoro-status">
+                    Time to focus
+                </div>
+
+                <div class="timer-buttons">
+
+                    <button class="start-btn">
+
+                        <i data-lucide="play"></i>
+
+                        Start
+
+                    </button>
+
+                    <button class="reset-btn">
+
+                        <i data-lucide="rotate-ccw"></i>
+
+                        Reset
+
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="study-section">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <p class="section-label">
+                        TODAY
+                    </p>
+
+                    <h2>
+                        Study Time
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="study-stats">
+
+
+                <!-- TOTAL -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+
+                        <i data-lucide="clock"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p class="stat-label">
+                            Total Study Time
+                        </p>
+
+                        <h3>
+                            2h 35m
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SESSIONS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+
+                        <i data-lucide="layers"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p class="stat-label">
+                            Study Sessions
+                        </p>
+
+                        <h3>
+                            4
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LONGEST -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+
+                        <i data-lucide="trending-up"></i>
+
+                    </div>
+
+                    <div>
+
+                        <p class="stat-label">
+                            Longest Session
+                        </p>
+
+                        <h3>
+                            52m
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SUBJECT BREAKDOWN
+            ========================== -->
+
+            <div class="subject-time-card">
+
+                <div class="subject-time-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            BREAKDOWN
+                        </p>
+
+                        <h2>
+                            Time by Subject
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                        
+            <div class="subject-times" id="subject-times">
+                
+            </div>
+
+
+
+            </div>
+            <div class="study-history-card">
+
+    <div class="history-header">
+
+        <div>
+
+            <p class="section-label">
+                HISTORY
+            </p>
+
+            <h2>
+                Study Time
+            </h2>
+
+        </div>
+
+        <div class="history-tabs">
+
+            <button class="history-tab active">
+                Week
+            </button>
+
+            <button class="history-tab">
+                Month
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- WEEK VIEW -->
+
+    <div class="week-view">
+
+        <div class="day-column">
+
+            <span class="day-name">MON</span>
+            <div class="day-bar">
+                <div class="day-progress" style="height: 45%;"></div>
+            </div>
+            <span class="day-time">1h 20m</span>
+
+        </div>
+
+
+        <div class="day-column">
+
+            <span class="day-name">TUE</span>
+            <div class="day-bar">
+                <div class="day-progress" style="height: 70%;"></div>
+            </div>
+            <span class="day-time">2h 10m</span>
+
+        </div>
+
+
+        <div class="day-column">
+
+            <span class="day-name">WED</span>
+            <div class="day-bar">
+                <div class="day-progress" style="height: 30%;"></div>
+            </div>
+            <span class="day-time">55m</span>
+
+        </div>
+
+
+        <div class="day-column">
+
+            <span class="day-name">THU</span>
+            <div class="day-bar">
+                <div class="day-progress" style="height: 85%;"></div>
+            </div>
+            <span class="day-time">2h 35m</span>
+
+        </div>
+
+
+        <div class="day-column">
+
+            <span class="day-name">FRI</span>
+            <div class="day-bar">
+                <div class="day-progress" style="height: 60%;"></div>
+            </div>
+            <span class="day-time">1h 45m</span>
+
+        </div>
+
+
+        <div class="day-column">
+
+            <span class="day-name">SAT</span>
+            <div class="day-bar">
+                <div class="day-progress" style="height: 20%;"></div>
+            </div>
+            <span class="day-time">35m</span>
+
+        </div>
+
+
+        <div class="day-column">
+
+            <span class="day-name">SUN</span>
+            <div class="day-bar">
+                <div class="day-progress" style="height: 0%;"></div>
+            </div>
+            <span class="day-time">0m</span>
+
+        </div>
+
+    </div>
+
+
+    <!-- MONTH SUMMARY -->
+
+    <div class="month-summary">
+
+        <div class="month-summary-item">
+
+            <span>
+                This month
+            </span>
+
+            <strong>
+                28h 45m
+            </strong>
+
+        </div>
+
+
+        <div class="month-summary-item">
+
+            <span>
+                Daily average
+            </span>
+
+            <strong>
+                1h 32m
+            </strong>
+
+        </div>
+
+
+        <div class="month-summary-item">
+
+            <span>
+                Best day
+            </span>
+
+            <strong>
+                Thursday
+            </strong>
+
+        </div>
+
+    </div>
+
+</div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- LUCIDE -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="js/script.js"></script>
+    <script src="js/timer.js"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+
+</body>
+
+</html>

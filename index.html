@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My SQLite Database Website</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <h2 class="user-search">SQLite User Search</h2>
+
+    <div class="search-container">
+        <input type="text" id="nameSearch" placeholder="Type a name">
+        <button onclick="searchUsers()">Search</button>
+    </div>
+
+    <div id="results">Loading records...</div>
+
+    <script>
+        async function searchUsers() {
+            const nameInput = document.getElementById('nameSearch').value;
+            const resultsDiv = document.getElementById('results');
+            
+            const url = `/api/users/search?name=${encodeURIComponent(nameInput)}`;
+            
+            try {
+                const response = await fetch(url);
+                const users = await response.json();
+                
+                resultsDiv.innerHTML = ''; 
+
+                if (users.length === 0) {
+                    resultsDiv.innerHTML = '<p>No matching users found.</p>';
+                    return;
+                }
+                users.forEach(user => {
+                    const card = document.createElement('div');
+                    card.className = 'user-card';
+                    card.innerHTML = `
+                        <strong>Name:</strong> ${user.name}<br>
+                        <strong>Role:</strong> ${user.role}<br>
+                        <strong>Email:</strong> ${user.email}
+                    `;
+                    resultsDiv.appendChild(card);
+                });
+            } catch (error) {
+                resultsDiv.innerHTML = '<p>Error connecting to backend.</p>';
+                console.error(error);
+            }
+        }
+
+        window.onload = searchUsers;
+    </script>
+
+</body>
+</html>
